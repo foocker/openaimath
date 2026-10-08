@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="95 秒中文数学讲解：读懂 7/8 无零点区域与完整黎曼假设的区别。">
+  <title>7/8，离 1/2 还有多远？ — OpenAI Math</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="player.css">
+  <script src="timing.js"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="page-header"><a class="back" href="../../?paper=The-Quasi-Riemann-Hypothesis-September-30-2026">← 返回论文</a><span>OPENAI MATH / 003</span></header>
+    <main>
+      <div class="intro"><p class="eyebrow">论文讲解 · 中文旁白</p><h1>7/8，离 1/2 还有多远？</h1><p>用一张复平面图，看清一个区域与一条线的区别。</p></div>
+      <section id="player" aria-label="论文视频播放器" tabindex="0">
+        <div class="canvas" id="canvas"><iframe id="composition" src="composition.html" title="黎曼假设论文动画" scrolling="no" tabindex="-1" aria-hidden="true"></iframe><button id="cover-play" aria-label="播放讲解"><span class="play-triangle">▶</span><span>播放讲解 <small>01:35 · 中文旁白</small></span></button></div>
+        <div class="caption-line" id="live-caption">7/8，离 1/2 还有多远？</div>
+        <div class="transport">
+          <label class="sr-only" for="progress">播放进度（秒）</label><input id="progress" type="range" min="0" max="95.082" step="0.05" value="0" aria-valuetext="00:00 / 01:35">
+          <div class="control-row"><button id="play" aria-label="播放" disabled>▶ <span>播放</span></button><button id="restart" aria-label="从头播放">↺</button><output id="clock" aria-live="off">00:00 / 01:35</output><div class="spacer"></div><label class="sr-only" for="speed">播放速度</label><select id="speed" aria-label="播放速度"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select><button id="mute" aria-pressed="false" aria-label="静音">声音</button><button id="cc" aria-pressed="true" aria-label="显示字幕">字幕</button><button id="fullscreen" aria-label="全屏播放">⛶</button></div>
+        </div>
+        <nav class="chapters" id="chapters" aria-label="视频章节"></nav>
+        <p id="player-status" role="status">正在加载画面…</p>
+      </section>
+      <div class="reader-notes">
+        <section><h2>这段视频讲的是什么</h2><p>本片释读 2026 年 9 月 30 日的 <i>The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re(s) &gt; 7/8</i>，并非完整黎曼假设的证明。正文第 4 页明确写明：黎曼假设仍未解决。视频展示了关于 ζ(s) 的结论；论文主结果还涉及所有 Dirichlet L 函数，以及 Q(√−3) 上的有限阶 Hecke L 函数。</p><p>图中是正虚部最小的六个非平凡零点的数值近似，仅为例子。图示只截取上半平面的有限窗口；无零点区域向图外延伸。s = 1 是极点。</p></section>
+        <details><summary>逐句文字稿与章节跳转</summary><div id="transcript"></div></details>
+        <section class="sources"><h2>原文与术语</h2><ul><li><a href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf" target="_blank" rel="noopener noreferrer">论文 PDF ↗</a>：摘要、正文第 4 页的结论边界、第 5—7 页的证明概述。</li><li><a href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/003.md" target="_blank" rel="noopener noreferrer">Lean 形式化范围 ↗</a>：主结果已列入，后续应用并未全部纳入。</li><li>术语依据项目指定词典：Riemann hypothesis → 黎曼假设（常称“黎曼猜想”）；critical strip → 临界带；critical line → 临界线；zero-free region → 无零点区域。</li></ul><p class="fine">本站制作的非官方解读，不构成独立证明核验。中文旁白为合成语音。数学内容来源 openai/math（Apache-2.0），版本 adc7f12。<a href="https://github.com/foocker/openaimath/tree/main/videos/riemann-zero-free" target="_blank" rel="noopener noreferrer">查看本片源码 ↗</a></p></section>
+      </div>
+    </main>
+  </div>
+  <script src="player.js"></script>
+</body>
+</html>

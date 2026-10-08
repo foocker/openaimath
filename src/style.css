@@ -313,6 +313,14 @@ dialog textarea { width: 100%; height: 270px; resize: vertical; padding: 15px; b
   .pdf-scroll { padding: 8px; }
   dialog { padding: 20px; }
 }
+.explainer-section { scroll-margin-top: 95px; }
+.explainer-section > h3 { font-size: 24px; margin: 4px 0 10px; line-height: 1.4; }
+.explainer-intro, .explainer-note { font-size: 13px; line-height: 1.8; color: var(--muted); }
+.explainer-intro { margin: 0 0 20px; }
+.explainer-note { margin: 16px 0 0; }
+.explainer-frame { width: 100%; height: 650px; border: 1px solid var(--line); border-radius: 7px; display: block; background: #f4f1e8; }
+.video-action { color: var(--accent); }
+@media (max-width: 700px) { .explainer-frame { height: 440px; } .explainer-section > h3 { font-size: 21px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; animation: none !important; } }
 @media print {
   .topbar, .sidebar, .controls, .reader-aside, .paper-actions, .reader-actions, footer, .toast, .full-paper, .skip-link { display: none !important; }

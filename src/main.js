@@ -7,6 +7,7 @@ import 'katex/dist/katex.min.css';
 import renderMathInElement from 'katex/contrib/auto-render';
 import DOMPurify from 'dompurify';
 import './style.css';
+import { hasExplainer, explainerSection } from './explainers';
 
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -72,6 +73,7 @@ function card(p, compact = false, withSubject = true) {
     ${badge(p, withSubject)}
     <div class="abstract" id="abstract-${escape(p.id)}">${html(p.abstract)}</div>
     <div class="paper-actions"><a class="action primary-action" href="${paperUrl(p.id)}">${icon('document')} 阅读论文</a>
+      ${hasExplainer(p.id) ? `<a class="action video-action" href="${paperUrl(p.id)}#explainer">▷ 视频讲解</a>` : ''}
       <a class="action" href="${source(p.path)}" ${external}>PDF ↗</a>
       <a class="action" href="${source(`preprints/${p.id}`, 'tree')}" ${external}>源码</a>
       <button class="action" data-cite="${escape(p.id)}">BibTeX</button>
@@ -187,10 +189,15 @@ function detail(p) {
   main.innerHTML = `<nav class="breadcrumbs" aria-label="位置"><a href="?">首页</a><span>/</span><a href="${subjectUrl(s.id)}">${s.zh}</a><span>/</span><a href="${subjectUrl(s.id)}#f${f.id}">系列 ${f.id}</a></nav>
     <div class="reader-layout"><article class="reader-article"><header class="reader-head"><div class="eyebrow">RESEARCH MANUSCRIPT / ${f.id}</div><h1 lang="en">${html(p.title)}</h1><div class="reader-author">OpenAI <span>·</span> ${date(p.date)}</div>${badge(p)}<div class="reader-actions"><a class="button primary" href="#full-paper">${icon('document')} 阅读全文</a><a class="button" href="${raw(p.path)}" ${external}>下载 PDF ↗</a><button class="button" data-cite="${escape(p.id)}">引用 BibTeX</button><button class="button" id="copy-link">复制链接</button></div></header>
     <section class="reader-section" id="abstract"><h2>摘要 <span>ABSTRACT</span></h2><div class="reading-prose" lang="en">${html(p.abstract)}</div></section>
+    ${explainerSection(p.id)}
     <section class="reader-section" id="family-context"><h2>所属成果系列 <span>No. ${f.id}</span></h2><h3 class="context-title">${html(f.title)}</h3><div class="reading-prose" lang="en">${html(f.description)}</div><div class="family-links">${f.leanPath ? `<a class="badge lean-badge" href="${source(f.leanPath)}" ${external}>查看 Lean 覆盖范围 ↗</a>` : ''}${f.tracePath ? `<a class="badge trace-badge" href="${source(f.tracePath)}" ${external}>阅读推理摘要 ↗</a>` : ''}</div></section>
     <section class="reader-section full-paper" id="full-paper"><div class="section-heading"><h2>论文全文 <span>ORIGINAL PDF</span></h2><a href="${source(p.path)}" ${external}>在 GitHub 打开 ↗</a></div><div id="pdf-reader" data-url="${raw(p.path)}"><div class="pdf-placeholder">${icon('document')}<h3>在这里，继续阅读原论文</h3><p>保留原始数学排版，支持翻页、缩放与文字选择。</p><button class="button primary" id="load-pdf">打开 PDF 阅读器</button><span>从官方仓库加载 · 无需离开页面</span></div></div></section>
     ${catalog.papers.filter(item => item.family === p.family && item.id !== p.id).length ? `<section class="reader-section"><h2>同系列论文 <span>RELATED MANUSCRIPTS</span></h2><div class="papers">${catalog.papers.filter(item => item.family === p.family && item.id !== p.id).map(item => card(item, false, false)).join('')}</div></section>` : ''}</article>
     <aside class="reader-aside"><div class="reader-aside-inner"><h2>本页目录</h2><nav aria-label="论文阅读目录"><a href="#abstract">摘要</a><a href="#family-context">成果系列</a><a href="#full-paper">论文全文</a></nav><div class="aside-divider"></div><h2>原始材料</h2><a href="${source(p.path)}" ${external}>论文 PDF ↗</a><a href="${source(`preprints/${p.id}`, 'tree')}" ${external}>LaTeX 与构建说明 ↗</a>${p.lean ? `<a href="${source(f.leanPath || 'lean/formalization.yaml')}" ${external}>Lean 形式化说明 ↗</a>` : ''}<div class="aside-note">本页保留官方英文原文。${p.lean ? '主结果的形式化标记来自官方目录，具体范围见 Lean 说明。' : '官方目录未将本篇标记为主结果已形式化。'}</div><div class="reader-type-controls"><span>摘要字号</span><button id="font-down" class="icon-button" aria-label="减小摘要字号">A−</button><button id="font-up" class="icon-button" aria-label="增大摘要字号">A＋</button></div></div></aside></div>`;
+  if (hasExplainer(p.id)) {
+    $('.reader-actions').insertAdjacentHTML('afterbegin', '<a class="button primary" href="#explainer">▷ 观看讲解</a>');
+    $('.reader-aside nav a').insertAdjacentHTML('afterend', '<a href="#explainer">视频讲解 · 95 秒</a>');
+  }
   let fontSize = 18;
   try { fontSize = Math.max(16, Math.min(24, Number(localStorage.getItem('math-font-size')) || 18)); } catch { /* Optional preference. */ }
   main.style.setProperty('--reading-size', `${fontSize}px`);

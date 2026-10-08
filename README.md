@@ -25,6 +25,7 @@ npm run dev
 - 搜索覆盖标题、摘要、系列描述、系列编号及中英文学科名。多词按 AND 匹配，双引号支持短语搜索；按 `/` 聚焦搜索框，`Esc` 清空。
 - 支持仅看 Lean、日期排序、标题排序、摘要展开和原始 BibTeX 复制。
 - 论文阅读页包括摘要、成果背景、相关论文，以及支持翻页、缩放和文字选择的 PDF 阅读器。
+- 系列 003 的 9 月 30 日论文附有 [95 秒中文视频讲解](https://foocker.github.io/openaimath/explainers/riemann-zero-free/)，支持旁白、同步字幕、拖动进度、倍速和章节跳转。动画由前端代码直接播放。
 - 深浅主题、摘要字号会保存在当前浏览器；搜索和筛选条件保存在 URL，可分享或刷新恢复。
 - 桌面、平板和手机均有对应排版。字体、KaTeX、PDF.js 均随站点构建，不依赖公共 CDN。
 
@@ -97,11 +98,14 @@ GitHub 仓库的 **Settings → Pages** 应配置为 **Deploy from a branch → 
 npm run check:data
 npm run build
 npm test
+npm run test:explainers
 ```
 
 浏览器检查使用 Playwright，启动临时本地生产预览，完成后自动关闭。覆盖首页统计、搜索、空结果、精确 Lean 范围、公式排版、排序、分页、原始引用复制、在线 PDF 加载与翻页缩放、主题持久化、移动端溢出和无效链接。截图写入 `artifacts/`。
 
 如果没有可用的 Chromium，先运行 `npx playwright install chromium`，或设置 `PLAYWRIGHT_CHROMIUM_EXECUTABLE` 指向现有 Chromium 可执行文件。PDF 检查需要访问 `raw.githubusercontent.com`。
+
+视频检查覆盖实际音频时长、播放和暂停、倍速、静音、字幕、章节、正反向定位、7/8 的图形坐标、手机字幕、嵌入尺寸和 GitHub Pages 子目录路径。数学解读、旁白稿和制作说明位于 [videos/riemann-zero-free](videos/riemann-zero-free/README.md)。视频关联独立于上游目录，同步论文不会覆盖本地解读。构建只使用已冻结音频和本地依赖，不调用语音生成服务。
 
 ## 文件结构
 
@@ -116,6 +120,10 @@ scripts/terminology.py      提取、核对与更新选用术语
 data/terminology.json       选用译名及原词典条目
 scripts/deploy.mjs          构建产物发布到 GitHub Pages
 scripts/smoke.mjs           浏览器端检查
+scripts/build-explainers.mjs  生成独立动画、播放器和本地字体资源
+scripts/test-explainers.mjs   前端视频浏览器检查
+src/explainers.js             论文与视频关联、嵌入及尺寸同步
+videos/riemann-zero-free/     95 秒论文讲解源项目、旁白和时间轴
 public/data/catalog.json   完整的可追溯索引快照
 public/data/UPSTREAM-LICENSE.txt
 dist/                      生产构建产物

@@ -4,3 +4,13 @@ dist/
 artifacts/
 *.log
 __pycache__/
+public/explainers/
+videos/riemann-zero-free/assets/*
+!videos/riemann-zero-free/assets/narration.mp3
+videos/riemann-zero-free/index.html
+videos/riemann-zero-free/timing.js
+videos/riemann-zero-free/.hyperframes/
+videos/riemann-zero-free/snapshots/
+videos/riemann-zero-free/.media/audio/
+videos/riemann-zero-free/.thumbnails/
+videos/riemann-zero-free/.waveform-cache/

@@ -4,8 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "npm run check:data && vite build",
+    "dev": "npm run build:explainers && vite --host 127.0.0.1",
+    "build": "npm run check:data && npm run build:explainers && vite build",
+    "build:explainers": "node scripts/build-explainers.mjs",
+    "test:explainers": "node scripts/test-explainers.mjs",
     "preview": "vite preview --host 127.0.0.1",
     "deploy": "npm run build && node scripts/deploy.mjs",
     "sync": "python scripts/sync.py",
@@ -15,8 +17,10 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
+    "@fontsource/noto-sans-sc": "5.2.9",
     "@fontsource/source-serif-4": "^5.2.9",
     "dompurify": "^3.3.0",
+    "gsap": "3.14.2",
     "katex": "^0.16.22",
     "pdfjs-dist": "^5.4.624"
   },

@@ -1,0 +1,19 @@
+{
+  "source": "tools/math-translator/dictionaries/merged.json",
+  "sha256": "3180d358c6a72c6334c6799df69e21a24c82fd24f6276ff7c9768e58f8bb7c6c",
+  "terms": {
+    "Riemann hypothesis": "黎曼假设",
+    "Riemann zeta-function": "黎曼ζ函数",
+    "critical strip": "临界带",
+    "critical line": "临界线",
+    "zero-free region": "无零点区域",
+    "half-plane": "半平面",
+    "nontrivial zero": "非平凡零点",
+    "analytic continuation": "解析延拓",
+    "real part": "实部",
+    "imaginary part": "虚部",
+    "complex plane": "复平面",
+    "functional equation": "函数方程",
+    "Mellin transform": "梅林变换"
+  }
+}
