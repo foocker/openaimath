@@ -9,6 +9,7 @@
     "preview": "vite preview --host 127.0.0.1",
     "deploy": "npm run build && node scripts/deploy.mjs",
     "sync": "python scripts/sync.py",
+    "glossary:sync": "python scripts/terminology.py",
     "check:data": "python scripts/sync.py --check",
     "test": "node scripts/smoke.mjs"
   },

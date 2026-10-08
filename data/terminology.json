@@ -1,0 +1,1024 @@
+{
+  "source": "tools/math-translator/dictionaries/merged.json",
+  "sha256": "3180d358c6a72c6334c6799df69e21a24c82fd24f6276ff7c9768e58f8bb7c6c",
+  "dictionaryEntries": 60925,
+  "terms": {
+    "Number theory": {
+      "zh": "数论",
+      "dictionaryEntries": [
+        {
+          "key": "number theory",
+          "value": "数论(古称:高等算术)"
+        }
+      ]
+    },
+    "Algebraic geometry": {
+      "zh": "代数几何",
+      "dictionaryEntries": [
+        {
+          "key": "algebraic geometry",
+          "value": "代数几何(学)"
+        }
+      ]
+    },
+    "Complex geometry": {
+      "zh": "复几何",
+      "dictionaryEntries": [
+        {
+          "key": "complex geometry",
+          "value": "复几何(学)"
+        }
+      ]
+    },
+    "Real analysis": {
+      "zh": "实分析",
+      "dictionaryEntries": [
+        {
+          "key": "real analysis",
+          "value": "实分析"
+        }
+      ]
+    },
+    "Complex analysis": {
+      "zh": "复分析",
+      "dictionaryEntries": [
+        {
+          "key": "complex analysis",
+          "value": "复分析"
+        }
+      ]
+    },
+    "Convex geometry": {
+      "zh": "凸几何",
+      "dictionaryEntries": [
+        {
+          "key": "convex geometry",
+          "value": "凸几何(学)"
+        }
+      ]
+    },
+    "Metric geometry": {
+      "zh": "度量几何",
+      "dictionaryEntries": [
+        {
+          "key": "metric geometry",
+          "value": "度量几何(学)"
+        }
+      ]
+    },
+    "Theoretical computer science": {
+      "zh": "理论计算机科学",
+      "dictionaryEntries": [
+        {
+          "key": "computer science",
+          "value": "计算机科学"
+        }
+      ],
+      "note": "完整词组未收录；计算机科学采用 computer science，理论为学科修饰语。"
+    },
+    "Dynamical systems": {
+      "zh": "动力系统",
+      "dictionaryEntries": [
+        {
+          "key": "dynamical system",
+          "value": "动力系统"
+        }
+      ]
+    },
+    "Ergodic theory": {
+      "zh": "遍历理论",
+      "dictionaryEntries": [
+        {
+          "key": "ergodic theory",
+          "value": "遍历理论"
+        }
+      ]
+    },
+    "Combinatorics": {
+      "zh": "组合学",
+      "dictionaryEntries": [
+        {
+          "key": "combinatorics",
+          "value": "组合学"
+        }
+      ]
+    },
+    "Algebra": {
+      "zh": "代数学",
+      "dictionaryEntries": [
+        {
+          "key": "algebra",
+          "value": "代数学 ;代数"
+        }
+      ]
+    },
+    "Probability theory": {
+      "zh": "概率论",
+      "dictionaryEntries": [
+        {
+          "key": "probability theory",
+          "value": "概率论"
+        }
+      ]
+    },
+    "Statistical mechanics": {
+      "zh": "统计力学",
+      "dictionaryEntries": [
+        {
+          "key": "statistical mechanics",
+          "value": "统计力学"
+        }
+      ]
+    },
+    "Mathematical logic": {
+      "zh": "数理逻辑",
+      "dictionaryEntries": [
+        {
+          "key": "mathematical logic",
+          "value": "数理逻辑(又称:符号逻辑)"
+        }
+      ]
+    },
+    "Group theory": {
+      "zh": "群论",
+      "dictionaryEntries": [
+        {
+          "key": "group theory",
+          "value": "群论"
+        }
+      ]
+    },
+    "Mathematical physics": {
+      "zh": "数学物理",
+      "dictionaryEntries": [
+        {
+          "key": "mathematical physics",
+          "value": "数学物理"
+        }
+      ]
+    },
+    "Operator algebras": {
+      "zh": "算子代数",
+      "dictionaryEntries": [
+        {
+          "key": "operator algebra",
+          "value": "算子代数"
+        }
+      ]
+    },
+    "Topology": {
+      "zh": "拓扑学",
+      "dictionaryEntries": [
+        {
+          "key": "topology",
+          "value": "拓扑(学)"
+        }
+      ]
+    },
+    "Functional analysis": {
+      "zh": "泛函分析",
+      "dictionaryEntries": [
+        {
+          "key": "functional analysis",
+          "value": "泛函分析"
+        }
+      ]
+    },
+    "Differential geometry": {
+      "zh": "微分几何",
+      "dictionaryEntries": [
+        {
+          "key": "differential geometry",
+          "value": "微分几何(学)"
+        }
+      ]
+    },
+    "Partial differential equations": {
+      "zh": "偏微分方程",
+      "dictionaryEntries": [
+        {
+          "key": "partial differential equation (=ODE)",
+          "value": "偏微分方程"
+        }
+      ],
+      "note": "采用词条中文；词典键中的 (=ODE) 是误注，不用于英文显示。PDE 与 ODE 不混同。"
+    },
+    "L-functions": {
+      "zh": "L 函数",
+      "dictionaryEntries": [
+        {
+          "key": "function",
+          "value": "函数 ，函项；功能"
+        },
+        {
+          "key": "L-function",
+          "value": "函数$L^{2}$-function$L^{2}$函数"
+        }
+      ],
+      "note": "L-function 条目与 L²-function 粘连，不能直接采用；保留数学符号 L，函数采用 function。"
+    },
+    "Elliptic curves": {
+      "zh": "椭圆曲线",
+      "dictionaryEntries": [
+        {
+          "key": "elliptic curve",
+          "value": "椭圆曲线"
+        }
+      ]
+    },
+    "Diophantine problems": {
+      "zh": "丢番图问题",
+      "dictionaryEntries": [
+        {
+          "key": "Diophantine problem",
+          "value": "丢番图问题"
+        }
+      ]
+    },
+    "Galois theory": {
+      "zh": "伽罗瓦理论",
+      "dictionaryEntries": [
+        {
+          "key": "Galois theory",
+          "value": "伽罗瓦理论"
+        }
+      ]
+    },
+    "Birational geometry": {
+      "zh": "双有理几何",
+      "dictionaryEntries": [
+        {
+          "key": "birational geometry",
+          "value": "双有理几何(学)"
+        }
+      ]
+    },
+    "Hodge theory": {
+      "zh": "霍奇理论",
+      "dictionaryEntries": [
+        {
+          "key": "Hodge theory",
+          "value": "霍奇理论"
+        }
+      ]
+    },
+    "Moduli spaces": {
+      "zh": "模空间",
+      "dictionaryEntries": [
+        {
+          "key": "moduli space (",
+          "value": "参)模空间"
+        }
+      ],
+      "note": "原词条括号断行为 moduli space ( → 参)模空间；恢复为（参）模空间，页面选用模空间。"
+    },
+    "Enumerative invariants": {
+      "zh": "枚举不变量",
+      "dictionaryEntries": [
+        {
+          "key": "enumerative",
+          "value": "枚举的,计数的"
+        },
+        {
+          "key": "invariant",
+          "value": "不变量，不变式；不变的"
+        }
+      ],
+      "note": "完整词组未收录；按枚举的和不变量组合。"
+    },
+    "Harmonic analysis": {
+      "zh": "调和分析",
+      "dictionaryEntries": [
+        {
+          "key": "harmonic analysis",
+          "value": "调和分析"
+        }
+      ]
+    },
+    "Approximation theory": {
+      "zh": "逼近论",
+      "dictionaryEntries": [
+        {
+          "key": "approximation theory",
+          "value": "逼近论"
+        }
+      ]
+    },
+    "Special functions": {
+      "zh": "特殊函数",
+      "dictionaryEntries": [
+        {
+          "key": "special function",
+          "value": "特殊函数"
+        }
+      ]
+    },
+    "Several complex variables": {
+      "zh": "多复变量",
+      "dictionaryEntries": [
+        {
+          "key": "several complex variables",
+          "value": "多复变量"
+        }
+      ]
+    },
+    "Convex bodies": {
+      "zh": "凸体",
+      "dictionaryEntries": [
+        {
+          "key": "convex body",
+          "value": "凸体"
+        }
+      ]
+    },
+    "Isoperimetric problems": {
+      "zh": "等周问题",
+      "dictionaryEntries": [
+        {
+          "key": "isoperimetric problem",
+          "value": "等周问题"
+        }
+      ]
+    },
+    "Packings": {
+      "zh": "堆积",
+      "dictionaryEntries": [
+        {
+          "key": "packing",
+          "value": "填装 ,堆砌,填充,堆积"
+        }
+      ]
+    },
+    "Metric embeddings": {
+      "zh": "度量嵌入",
+      "dictionaryEntries": [
+        {
+          "key": "metric",
+          "value": "度量；度量的；度规（在数学物理方面）"
+        },
+        {
+          "key": "embedding",
+          "value": "嵌入"
+        }
+      ],
+      "note": "完整词组未收录；按度量和嵌入组合，不误用 isometric embedding（等距嵌入）。"
+    },
+    "Computational complexity": {
+      "zh": "计算复杂性",
+      "dictionaryEntries": [
+        {
+          "key": "computational complexity",
+          "value": "计算复杂性"
+        }
+      ]
+    },
+    "Algorithms": {
+      "zh": "算法",
+      "dictionaryEntries": [
+        {
+          "key": "algorithm",
+          "value": "算法"
+        }
+      ]
+    },
+    "Hardness of approximation": {
+      "zh": "hardness of approximation",
+      "dictionaryEntries": [],
+      "note": "完整词组未收录，保留英文；不将 approximation theory 的逼近论直接套到计算复杂性语境。"
+    },
+    "Information theory": {
+      "zh": "信息论",
+      "dictionaryEntries": [
+        {
+          "key": "information theory",
+          "value": "信息论"
+        }
+      ]
+    },
+    "Smooth dynamical systems": {
+      "zh": "光滑动力系统",
+      "dictionaryEntries": [
+        {
+          "key": "smooth dynamical system",
+          "value": "光滑动力系统"
+        }
+      ],
+      "note": "对应词条为单数 smooth dynamical system → 光滑动力系统。smooth dynamics 未独立收录，页面改用明确的系统术语。"
+    },
+    "Entropy": {
+      "zh": "熵",
+      "dictionaryEntries": [
+        {
+          "key": "entropy",
+          "value": "熵"
+        }
+      ]
+    },
+    "Rigidity": {
+      "zh": "刚性",
+      "dictionaryEntries": [
+        {
+          "key": "rigidity",
+          "value": "刚性"
+        }
+      ]
+    },
+    "Extremal combinatorics": {
+      "zh": "极值组合学",
+      "dictionaryEntries": [
+        {
+          "key": "extremal combinatorics",
+          "value": "极值组合学"
+        }
+      ]
+    },
+    "Additive combinatorics": {
+      "zh": "加性组合学",
+      "dictionaryEntries": [
+        {
+          "key": "additive",
+          "value": "加性的，加法的，可加的"
+        },
+        {
+          "key": "combinatorics",
+          "value": "组合学"
+        }
+      ],
+      "note": "完整词组未收录；按加性的和组合学组合。"
+    },
+    "Ramsey theory": {
+      "zh": "拉姆齐理论",
+      "dictionaryEntries": [
+        {
+          "key": "Ramsey theory",
+          "value": "拉姆齐理论"
+        }
+      ]
+    },
+    "Graph theory": {
+      "zh": "图论",
+      "dictionaryEntries": [
+        {
+          "key": "graph theory",
+          "value": "图论"
+        }
+      ]
+    },
+    "Matroids": {
+      "zh": "拟阵",
+      "dictionaryEntries": [
+        {
+          "key": "matroid",
+          "value": "拟阵"
+        }
+      ]
+    },
+    "Commutative algebra": {
+      "zh": "交换代数",
+      "dictionaryEntries": [
+        {
+          "key": "commutative algebra",
+          "value": "交换代数"
+        }
+      ]
+    },
+    "Representation theory": {
+      "zh": "表示论",
+      "dictionaryEntries": [
+        {
+          "key": "representation theory",
+          "value": "表示论"
+        }
+      ]
+    },
+    "Rings": {
+      "zh": "环",
+      "dictionaryEntries": [
+        {
+          "key": "ring",
+          "value": "环"
+        }
+      ]
+    },
+    "Modules": {
+      "zh": "模",
+      "dictionaryEntries": [
+        {
+          "key": "module",
+          "value": "模"
+        }
+      ]
+    },
+    "Random structures": {
+      "zh": "随机结构",
+      "dictionaryEntries": [
+        {
+          "key": "random structure",
+          "value": "随机结构"
+        }
+      ]
+    },
+    "Spin glasses": {
+      "zh": "spin glasses",
+      "dictionaryEntries": [],
+      "note": "完整术语未收录，保留英文，等待补充核定译名。"
+    },
+    "Percolation": {
+      "zh": "渗流",
+      "dictionaryEntries": [
+        {
+          "key": "percolation",
+          "value": "逾渗 ，渗流"
+        }
+      ]
+    },
+    "Random matrices": {
+      "zh": "随机矩阵",
+      "dictionaryEntries": [
+        {
+          "key": "random matrix",
+          "value": "随机矩阵"
+        }
+      ]
+    },
+    "Set theory": {
+      "zh": "集合论",
+      "dictionaryEntries": [
+        {
+          "key": "set theory",
+          "value": "集合论"
+        }
+      ]
+    },
+    "Model theory": {
+      "zh": "模型论",
+      "dictionaryEntries": [
+        {
+          "key": "model theory",
+          "value": "模型论"
+        }
+      ]
+    },
+    "Computability": {
+      "zh": "可计算性",
+      "dictionaryEntries": [
+        {
+          "key": "computability",
+          "value": "可计算性"
+        }
+      ]
+    },
+    "Geometric group theory": {
+      "zh": "几何群论",
+      "dictionaryEntries": [
+        {
+          "key": "geometric group theory",
+          "value": "几何群论"
+        }
+      ]
+    },
+    "Artin groups": {
+      "zh": "Artin 群",
+      "dictionaryEntries": [
+        {
+          "key": "group",
+          "value": "群,组;集团"
+        }
+      ],
+      "note": "Artin group 未收录，保留专名 Artin；不能套用 Artinian group，因为二者是不同概念。"
+    },
+    "Finite groups": {
+      "zh": "有限群",
+      "dictionaryEntries": [
+        {
+          "key": "finite group",
+          "value": "有限群"
+        }
+      ]
+    },
+    "Profinite groups": {
+      "zh": "投射有限群",
+      "dictionaryEntries": [
+        {
+          "key": "profinite group",
+          "value": "投射有限群"
+        }
+      ]
+    },
+    "Quantum spin systems": {
+      "zh": "量子自旋系统",
+      "dictionaryEntries": [
+        {
+          "key": "quantum",
+          "value": "量子"
+        },
+        {
+          "key": "spin system",
+          "value": "自旋系统"
+        }
+      ],
+      "note": "完整词组未收录；按量子和自旋系统组合。"
+    },
+    "Kinetics": {
+      "zh": "动理学",
+      "dictionaryEntries": [
+        {
+          "key": "kinetics",
+          "value": "动理学"
+        }
+      ]
+    },
+    "Integrable systems": {
+      "zh": "可积系统",
+      "dictionaryEntries": [
+        {
+          "key": "integrable system",
+          "value": "可积系统，可积方程组"
+        }
+      ]
+    },
+    "von Neumann algebras": {
+      "zh": "冯·诺伊曼代数",
+      "dictionaryEntries": [
+        {
+          "key": "von Neumann algebra",
+          "value": "冯·诺伊曼代数（又称：算子环）"
+        }
+      ]
+    },
+    "C*-algebras": {
+      "zh": "C* 代数",
+      "dictionaryEntries": [
+        {
+          "key": "algebra",
+          "value": "代数学 ;代数"
+        }
+      ],
+      "note": "保留数学符号 C*，代数采用 algebra。"
+    },
+    "Free probability": {
+      "zh": "自由概率",
+      "dictionaryEntries": [
+        {
+          "key": "free probability",
+          "value": "自由概率"
+        }
+      ]
+    },
+    "Low-dimensional topology": {
+      "zh": "低维拓扑",
+      "dictionaryEntries": [
+        {
+          "key": "low-dimensional topology",
+          "value": "低维拓扑"
+        }
+      ]
+    },
+    "Manifolds": {
+      "zh": "流形",
+      "dictionaryEntries": [
+        {
+          "key": "manifold",
+          "value": "流形"
+        }
+      ]
+    },
+    "Homotopy theory": {
+      "zh": "同伦论",
+      "dictionaryEntries": [
+        {
+          "key": "homotopy theory",
+          "value": "同伦论"
+        }
+      ]
+    },
+    "Banach spaces": {
+      "zh": "巴拿赫空间",
+      "dictionaryEntries": [
+        {
+          "key": "Banach space",
+          "value": "巴拿赫空间"
+        }
+      ]
+    },
+    "Operator theory": {
+      "zh": "算子理论",
+      "dictionaryEntries": [
+        {
+          "key": "operator theory",
+          "value": "算子理论"
+        }
+      ]
+    },
+    "Spectral theory": {
+      "zh": "谱理论",
+      "dictionaryEntries": [
+        {
+          "key": "spectral theory",
+          "value": "谱理论"
+        }
+      ]
+    },
+    "Curvature": {
+      "zh": "曲率",
+      "dictionaryEntries": [
+        {
+          "key": "curvature",
+          "value": "曲率"
+        }
+      ]
+    },
+    "Kähler geometry": {
+      "zh": "凯勒几何",
+      "dictionaryEntries": [
+        {
+          "key": "Kähler manifold",
+          "value": "凯勒流形"
+        },
+        {
+          "key": "geometry",
+          "value": "几何(学)"
+        }
+      ],
+      "note": "完整词组未收录；凯勒专名来自 Kähler manifold，几何来自 geometry。"
+    },
+    "Minimal surfaces": {
+      "zh": "极小曲面",
+      "dictionaryEntries": [
+        {
+          "key": "minimal surface",
+          "value": "极小曲面"
+        }
+      ]
+    },
+    "Symplectic geometry": {
+      "zh": "辛几何",
+      "dictionaryEntries": [
+        {
+          "key": "symplectic geometry",
+          "value": "辛几何(学)"
+        }
+      ]
+    },
+    "Fluids": {
+      "zh": "流体",
+      "dictionaryEntries": [
+        {
+          "key": "fluid",
+          "value": "流体;流体的"
+        }
+      ]
+    },
+    "Elliptic equations": {
+      "zh": "椭圆型方程",
+      "dictionaryEntries": [
+        {
+          "key": "elliptic equation",
+          "value": "椭圆(型)方程"
+        }
+      ]
+    },
+    "Dispersive equations": {
+      "zh": "色散方程",
+      "dictionaryEntries": [
+        {
+          "key": "dispersive equation",
+          "value": "色散方程"
+        }
+      ]
+    },
+    "Regularity": {
+      "zh": "正则性",
+      "dictionaryEntries": [
+        {
+          "key": "regularity",
+          "value": "正则性"
+        }
+      ]
+    }
+  },
+  "subjects": [
+    {
+      "name": "Number theory",
+      "hue": 160,
+      "labels": [
+        "Number theory"
+      ],
+      "topics": [
+        "L-functions",
+        "Elliptic curves",
+        "Diophantine problems",
+        "Galois theory"
+      ]
+    },
+    {
+      "name": "Algebraic and complex geometry",
+      "hue": 308,
+      "labels": [
+        "Algebraic geometry",
+        "Complex geometry"
+      ],
+      "topics": [
+        "Birational geometry",
+        "Hodge theory",
+        "Moduli spaces",
+        "Enumerative invariants"
+      ]
+    },
+    {
+      "name": "Real and complex analysis",
+      "hue": 96,
+      "labels": [
+        "Real analysis",
+        "Complex analysis"
+      ],
+      "topics": [
+        "Harmonic analysis",
+        "Approximation theory",
+        "Special functions",
+        "Several complex variables"
+      ]
+    },
+    {
+      "name": "Convex and metric geometry",
+      "hue": 245,
+      "labels": [
+        "Convex geometry",
+        "Metric geometry"
+      ],
+      "topics": [
+        "Convex bodies",
+        "Isoperimetric problems",
+        "Packings",
+        "Metric embeddings"
+      ]
+    },
+    {
+      "name": "Theoretical computer science",
+      "hue": 33,
+      "labels": [
+        "Theoretical computer science"
+      ],
+      "topics": [
+        "Computational complexity",
+        "Algorithms",
+        "Hardness of approximation",
+        "Information theory"
+      ]
+    },
+    {
+      "name": "Dynamical systems and ergodic theory",
+      "hue": 181,
+      "labels": [
+        "Dynamical systems",
+        "Ergodic theory"
+      ],
+      "topics": [
+        "Ergodic theory",
+        "Smooth dynamical systems",
+        "Entropy",
+        "Rigidity"
+      ]
+    },
+    {
+      "name": "Combinatorics",
+      "hue": 329,
+      "labels": [
+        "Combinatorics"
+      ],
+      "topics": [
+        "Extremal combinatorics",
+        "Additive combinatorics",
+        "Ramsey theory",
+        "Graph theory",
+        "Matroids"
+      ]
+    },
+    {
+      "name": "Algebra",
+      "hue": 118,
+      "labels": [
+        "Algebra"
+      ],
+      "topics": [
+        "Commutative algebra",
+        "Representation theory",
+        "Rings",
+        "Modules"
+      ]
+    },
+    {
+      "name": "Probability and statistical mechanics",
+      "hue": 266,
+      "labels": [
+        "Probability theory",
+        "Statistical mechanics"
+      ],
+      "topics": [
+        "Random structures",
+        "Spin glasses",
+        "Percolation",
+        "Random matrices"
+      ]
+    },
+    {
+      "name": "Mathematical logic",
+      "hue": 54,
+      "labels": [
+        "Mathematical logic"
+      ],
+      "topics": [
+        "Set theory",
+        "Model theory",
+        "Computability"
+      ]
+    },
+    {
+      "name": "Group theory",
+      "hue": 202,
+      "labels": [
+        "Group theory"
+      ],
+      "topics": [
+        "Geometric group theory",
+        "Artin groups",
+        "Finite groups",
+        "Profinite groups"
+      ]
+    },
+    {
+      "name": "Mathematical physics",
+      "hue": 351,
+      "labels": [
+        "Mathematical physics"
+      ],
+      "topics": [
+        "Quantum spin systems",
+        "Kinetics",
+        "Integrable systems"
+      ]
+    },
+    {
+      "name": "Operator algebras",
+      "hue": 139,
+      "labels": [
+        "Operator algebras"
+      ],
+      "topics": [
+        "von Neumann algebras",
+        "C*-algebras",
+        "Free probability"
+      ]
+    },
+    {
+      "name": "Topology",
+      "hue": 287,
+      "labels": [
+        "Topology"
+      ],
+      "topics": [
+        "Low-dimensional topology",
+        "Manifolds",
+        "Homotopy theory"
+      ]
+    },
+    {
+      "name": "Functional analysis",
+      "hue": 75,
+      "labels": [
+        "Functional analysis"
+      ],
+      "topics": [
+        "Banach spaces",
+        "Operator theory",
+        "Spectral theory"
+      ]
+    },
+    {
+      "name": "Differential geometry",
+      "hue": 224,
+      "labels": [
+        "Differential geometry"
+      ],
+      "topics": [
+        "Curvature",
+        "Kähler geometry",
+        "Minimal surfaces",
+        "Symplectic geometry"
+      ]
+    },
+    {
+      "name": "Partial differential equations",
+      "hue": 12,
+      "labels": [
+        "Partial differential equations"
+      ],
+      "topics": [
+        "Fluids",
+        "Elliptic equations",
+        "Dispersive equations",
+        "Regularity"
+      ]
+    }
+  ]
+}

@@ -50,7 +50,15 @@ npm run build
 | `preprints/*/README.md` | 原始 BibTeX 与论文日期 |
 | `LICENSE` | 原始内容的 Apache-2.0 许可证 |
 
-中文学科名称和简短学科介绍位于 `scripts/sync.py`。新增学科时，脚本会提示补充中文名称。官网说明各项结果处于不同验证阶段，界面保留了这一说明，Lean 徽标链接到其具体覆盖范围。
+中文学科名称和专业术语以 `tools/math-translator/dictionaries/merged.json` 为词典来源。项目的 `data/terminology.json` 保存 85 项已核对术语、所采用的词典原条目、选义说明和来源文件校验值；`scripts/sync.py` 直接使用这份术语表，构建时校验目录与术语表一致。学科页同时显示中英文主题，首页主题可通过悬停查看英文。
+
+普通构建不依赖本机的完整词典。更新词典选词时运行：
+
+```powershell
+npm run glossary:sync -- --dictionary E:/WechatArticle/tools/math-translator/dictionaries/merged.json
+```
+
+复合词记录组成依据；未核定的缺项保留英文；词典中的断行或误注单独记录，不直接照搬。具体规则见 [术语说明](docs/terminology.md)。新增学科时需要先补充并核对术语。官网说明各项结果处于不同验证阶段，界面保留了这一说明，Lean 徽标链接到其具体覆盖范围。
 
 ## 构建和部署
 
@@ -67,7 +75,7 @@ npm run preview
 npm run deploy
 ```
 
-该命令构建站点，将 `dist/` 的完整内容提交并推送到 `origin` 的 `gh-pages` 分支，保留该分支现有历史。发布使用本机 Git 的身份和 SSH / HTTPS 认证，不需要额外 API 密钥。临时发布目录与源码工作区隔离。
+该命令构建站点，将 `dist/` 的完整内容提交并推送到 `origin` 的 `gh-pages` 分支，保留该分支现有历史。旧版本带哈希的静态资源也会保留，避免浏览器缓存旧 HTML 时因脚本已删除而出现空白。发布使用本机 Git 的身份和 SSH / HTTPS 认证，不需要额外 API 密钥。临时发布目录与源码工作区隔离。
 
 GitHub 仓库的 **Settings → Pages** 应配置为 **Deploy from a branch → gh-pages → / (root)**。GitHub 完成发布后，可访问 <https://foocker.github.io/openaimath/>。
 
@@ -104,6 +112,8 @@ src/style.css               排版、主题、响应式样式
 src/pdf-reader.js           按需加载的 PDF 阅读器
 src/pdf-text-layer.css      PDF 文字选择层
 scripts/sync.py             官方仓库同步和数据校验
+scripts/terminology.py      提取、核对与更新选用术语
+data/terminology.json       选用译名及原词典条目
 scripts/deploy.mjs          构建产物发布到 GitHub Pages
 scripts/smoke.mjs           浏览器端检查
 public/data/catalog.json   完整的可追溯索引快照

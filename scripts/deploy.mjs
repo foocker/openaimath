@@ -28,6 +28,11 @@ try {
     git(['fetch', '--depth=1', remote, 'refs/heads/gh-pages'], deployment);
     git(['update-ref', 'refs/heads/gh-pages', 'FETCH_HEAD'], deployment);
     git(['read-tree', 'FETCH_HEAD'], deployment);
+    // Pages caches HTML for ten minutes. Keep immutable hashed assets so an
+    // already cached document remains usable during and after a release.
+    if (git(['ls-tree', '--name-only', 'FETCH_HEAD', 'assets'], deployment) === 'assets') {
+      git(['restore', '--source=FETCH_HEAD', '--worktree', '--', 'assets'], deployment);
+    }
   }
   cpSync(output, deployment, { recursive: true, filter: path => basename(path) !== '.git' });
   git(['add', '--all'], deployment);

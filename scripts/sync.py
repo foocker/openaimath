@@ -8,30 +8,13 @@ import re
 import time
 from urllib.parse import quote
 from urllib.request import Request, urlopen
+from terminology import load_subjects
 
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / 'public' / 'data'
 CACHE = ROOT / '.cache'
 REPO = 'https://github.com/openai/math'
-SUBJECTS = {
-    'Number theory': ('数论', 'L 函数、椭圆曲线、丢番图问题与伽罗瓦理论', 160),
-    'Algebraic and complex geometry': ('代数与复几何', '双有理几何、霍奇理论、模空间与计数不变量', 308),
-    'Real and complex analysis': ('实分析与复分析', '调和分析、逼近论、特殊函数与多复变函数', 96),
-    'Convex and metric geometry': ('凸几何与度量几何', '凸体、等周不等式、堆积与度量嵌入', 245),
-    'Theoretical computer science': ('理论计算机科学', '计算复杂性、算法、近似困难性与信息论', 33),
-    'Dynamical systems and ergodic theory': ('动力系统与遍历论', '遍历理论、光滑动力系统、熵与刚性', 181),
-    'Combinatorics': ('组合数学', '极值与加性组合、拉姆齐理论、图论与拟阵', 329),
-    'Algebra': ('代数学', '交换代数、表示论、环与模', 118),
-    'Probability and statistical mechanics': ('概率论与统计力学', '随机结构、自旋玻璃、渗流与随机矩阵', 266),
-    'Mathematical logic': ('数理逻辑', '集合论、模型论与可计算性', 54),
-    'Group theory': ('群论', '几何群论、阿廷群、有限群与副有限群', 202),
-    'Mathematical physics': ('数学物理', '量子自旋系统、动理学与可积系统', 351),
-    'Operator algebras': ('算子代数', '冯·诺依曼代数、C* 代数与自由概率', 139),
-    'Topology': ('拓扑学', '低维拓扑、流形与同伦论', 287),
-    'Functional analysis': ('泛函分析', '巴拿赫空间、算子理论与谱理论', 75),
-    'Differential geometry': ('微分几何', '曲率、凯勒几何、极小曲面与辛几何', 224),
-    'Partial differential equations': ('偏微分方程', '流体、椭圆与色散方程、正则性', 12),
-}
+SUBJECTS = load_subjects()
 
 
 def fetch(url):
@@ -68,6 +51,10 @@ def validate(data):
     assert len(papers) == data['counts']['papers'], 'Paper count mismatch'
     assert len({p['id'] for p in papers}) == len(papers), 'Duplicate manuscript IDs'
     assert sum(p['lean'] for p in papers) == data['counts']['lean'], 'Lean count mismatch'
+    for subject in subjects.values():
+        expected = SUBJECTS[subject['name']]
+        for key, value in expected.items():
+            assert subject.get(key) == value, f'Terminology mismatch: {subject["name"]}.{key}; run glossary:sync'
     for f in families.values():
         assert f['subject'] in subjects and f['description']
         assert any(p['family'] == f['id'] for p in papers), f'Empty family {f["id"]}'
@@ -93,9 +80,8 @@ def sync():
             name = match[1]
             if name not in SUBJECTS:
                 raise ValueError(f'Add a Chinese label for new upstream subject: {name}')
-            zh, description, hue = SUBJECTS[name]
             section = re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
-            subjects.append({'id': section, 'name': name, 'zh': zh, 'description': description, 'hue': hue})
+            subjects.append({'id': section, 'name': name, **SUBJECTS[name]})
         else:
             assert section, 'Family without a discipline'
             family_subject[match[2]] = section

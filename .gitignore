@@ -3,3 +3,4 @@ dist/
 .cache/
 artifacts/
 *.log
+__pycache__/
