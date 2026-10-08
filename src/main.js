@@ -243,7 +243,7 @@ window.addEventListener('resize', updateExpand);
 
 async function init() {
   try {
-    const response = await fetch(`${import.meta.env.BASE_URL}data/catalog.json`);
+    const response = await fetch(`${import.meta.env.BASE_URL}data/catalog.json?v=${__CATALOG_VERSION__}`);
     if (!response.ok) throw new Error(`Catalogue HTTP ${response.status}`);
     catalog = await response.json();
     subjects = new Map(catalog.subjects.map(s => [s.id, s]));
