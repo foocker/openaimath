@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1920, height=1080">
+  <title>7/8，离 1/2 还有多远？ · 数学讲解</title>
+  <link rel="stylesheet" href="assets/fonts.css?v=ff90e785eb68">
+  <link rel="stylesheet" href="composition.css?v=ff90e785eb68">
+  <script src="assets/gsap.min.js?v=ff90e785eb68"></script>
+  <script src="timing.js?v=ff90e785eb68"></script>
+</head>
+<body>
+  <div id="film" data-composition-id="riemann" data-width="1920" data-height="1080" data-duration="95.082">
+    <div id="continuous-diagram" class="clip scene" data-start="0" data-duration="95.082" data-track-index="0">
+      <header class="film-header"><span class="collection">∮ &nbsp; OPENAI MATH <span class="separator">/</span> 003</span><span id="chapter-label">01 / 六个阶段 · 一个数学问题</span></header>
+      <div class="film-body">
+        <div class="editorial">
+          <section class="phase" id="phase-0">
+            <p class="eyebrow">读懂一篇数学论文</p>
+            <h1>一片区域，<br>与一条线。</h1>
+            <div class="hero-fractions"><span class="fraction rust"><span>7</span><span>8</span></span><span class="between">到</span><span class="fraction teal"><span>1</span><span>2</span></span></div>
+            <p class="body-copy">黎曼假设，<br>以及一个无零点区域。</p>
+          </section>
+          <section class="phase" id="phase-1">
+            <p class="eyebrow">01 / 先认识这张图</p>
+            <h2>把函数放进<br>复平面。</h2>
+            <div class="formula medium">s = σ + it</div>
+            <div class="series formula">ζ(s) = 1 + <span class="fraction small"><span>1</span><span>2<sup>s</sup></span></span> + <span class="fraction small"><span>1</span><span>3<sup>s</sup></span></span> + ⋯</div>
+            <p class="formula-condition">级数定义适用于 Re(s) &gt; 1</p>
+            <p class="body-copy">经过解析延拓，<br>研究临界带中的零点。</p>
+          </section>
+          <section class="phase" id="phase-2">
+            <p class="eyebrow">02 / 完整黎曼假设</p>
+            <h2>所有非平凡零点，<br>在同一条线上。</h2>
+            <div class="formula statement teal">Re(s) = <span class="fraction"><span>1</span><span>2</span></span></div>
+            <p class="body-copy">关键词是“所有”。</p>
+            <p class="annotation">图中展示前六个正虚部零点的数值近似。有限检验不构成证明。</p>
+          </section>
+          <section class="phase" id="phase-3">
+            <p class="eyebrow">03 / 本文给出的结论</p>
+            <h2>边界推进到<br>八分之七。</h2>
+            <div class="formula statement rust">Re(s) &gt; <span class="fraction"><span>7</span><span>8</span></span></div>
+            <p class="body-copy">右侧没有零点。<br>边界本身不包含在内。</p>
+            <p class="annotation">对 ζ(s)，需单独排除 s = 1 的极点。论文明确写明：黎曼假设仍未解决。</p>
+          </section>
+          <section class="phase" id="phase-4">
+            <p class="eyebrow">04 / 原文第 5—7 页</p>
+            <h2>估计，如何变成<br>无零点区域？</h2>
+            <div class="bounds formula"><span class="fraction"><span>11</span><span>12</span></span><span class="between">→</span><span class="fraction rust"><span>7</span><span>8</span></span></div>
+            <p class="body-copy">更精细的估计，<br>带来更宽的排除区域。</p>
+            <p class="annotation">这里只呈现证明路线；完整论证及假设见原文。</p>
+          </section>
+          <section class="phase" id="phase-5">
+            <p class="eyebrow">05 / 回到最初的问题</p>
+            <h2>一个闭带。<br>还不是一条线。</h2>
+            <p class="result-label">按论文结论 + 函数方程</p>
+            <div class="formula interval"><span class="fraction"><span>1</span><span>8</span></span> ≤ Re(s) ≤ <span class="fraction"><span>7</span><span>8</span></span></div>
+            <p class="body-copy teal">黎曼假设仍要求 Re(s) = 1/2。</p>
+            <p class="annotation">Lean 说明覆盖主结果；论文中的后续应用并未全部纳入形式化。</p>
+          </section>
+        </div>
+        <div class="visual">
+          <div class="plot-heading"><span>黎曼ζ函数的非平凡零点</span><span class="plot-key"><i></i> 临界线</span></div>
+          <svg class="plot" viewBox="0 0 960 740" role="img" aria-label="复平面上的临界带、临界线和论文中的 7/8 无零点边界">
+            <defs>
+              <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><line x1="0" y1="0" x2="0" y2="14" stroke="#a94b30" stroke-width="1" opacity=".15"/></pattern>
+            </defs>
+            <g id="plot-base" data-layout-allow-occlusion="true">
+              <rect x="160" y="65" width="600" height="575" fill="#176b5b" opacity=".035"/>
+              <g class="grid"><path d="M80 500H900"/><path d="M80 370H900"/><path d="M80 240H900"/><path d="M80 110H900"/><path d="M310 65V640"/><path d="M460 65V640"/><path d="M610 65V640"/><path d="M760 65V640"/></g>
+              <rect id="right-region" x="760" y="65" width="140" height="575" fill="#e9d0bc" opacity="0"/>
+              <rect id="right-hatch" x="760" y="65" width="140" height="575" fill="url(#hatch)" opacity="0"/>
+              <rect id="left-region" x="80" y="65" width="155" height="575" fill="#e9d0bc" opacity="0"/>
+              <path class="axis draw" d="M80 630H910 M897 623L910 630L897 637"/>
+              <path class="axis draw" d="M160 665V40 M153 53L160 40L167 53"/>
+              <path class="strip-edge" d="M760 65V640"/>
+              <path id="critical" d="M460 65V640"/>
+              <path id="boundary" d="M760 65V640" opacity="0"/>
+              <path id="mirror-boundary" d="M235 65V640" opacity="0"/>
+              <text x="120" y="45" class="axis-name">t</text>
+              <text x="912" y="678" class="axis-name">σ</text>
+              <text x="160" y="687" class="tick">0</text>
+              <text x="460" y="687" class="tick teal-fill">1/2</text>
+              <text x="760" y="687" class="tick">1</text>
+              <text id="boundary-label" x="685" y="687" class="tick rust-fill" opacity="0">7/8</text>
+              <text id="mirror-label" x="235" y="687" class="tick rust-fill" opacity="0">1/8</text>
+              <text x="460" y="32" class="band-label" id="band-label">临界带 · 0 &lt; σ &lt; 1</text>
+              <g class="y-ticks"><text x="142" y="508">10</text><text x="142" y="378">20</text><text x="142" y="248">30</text><text x="142" y="118">40</text></g>
+              <g id="zeros"><circle id="zero-0" class="zero" cx="460" cy="446.2486" r="7.5"><title>1/2 + 14.1347i（数值近似）</title></circle><circle id="zero-1" class="zero" cx="460" cy="356.7135" r="7.5"><title>1/2 + 21.0220i（数值近似）</title></circle><circle id="zero-2" class="zero" cx="460" cy="304.8589" r="7.5"><title>1/2 + 25.0109i（数值近似）</title></circle><circle id="zero-3" class="zero" cx="460" cy="234.4766" r="7.5"><title>1/2 + 30.4249i（数值近似）</title></circle><circle id="zero-4" class="zero" cx="460" cy="201.8442" r="7.5"><title>1/2 + 32.9351i（数值近似）</title></circle><circle id="zero-5" class="zero" cx="460" cy="141.3797" r="7.5"><title>1/2 + 37.5862i（数值近似）</title></circle></g>
+              <g id="zero-callout" opacity="0"><path d="M478 446H528L562 475" class="callout-line"/><text x="577" y="488" class="zero-value">1/2 + 14.1347i</text></g>
+              <g id="pole" opacity="0"><circle cx="760" cy="630" r="8" fill="#f4f1e8" stroke="#a94b30" stroke-width="3"/><path d="M773 619L795 587H890" class="callout-line rust-stroke"/><text x="792" y="574" class="pole-label">极点 s = 1</text></g>
+              <g id="region-label" opacity="0"><text x="795" y="175" class="region-text">无零点</text><path d="M780 196H880 M872 189L880 196L872 203" class="rust-stroke callout-line"/><text x="805" y="235" class="region-sub">σ &gt; 7/8</text></g>
+              <path id="interval-bracket" d="M235 90V76H685V90" opacity="0"/>
+              <text id="interval-label" x="460" y="125" opacity="0" class="interval-label">剩余闭带</text>
+            </g>
+          </svg>
+          <div class="proof" id="proof">
+            <p class="proof-kicker">PROOF ROADMAP</p>
+            <div class="proof-step" id="proof-a"><span class="proof-number">01</span><div><h3>和式估计</h3><p>控制归一化和式的大小</p></div></div>
+            <svg viewBox="0 0 800 58" class="proof-arrow"><path id="proof-link-a" d="M56 0V48 M49 40L56 48L63 40"/></svg>
+            <div class="proof-step" id="proof-b"><span class="proof-number">02</span><div><h3>Mellin 积分</h3><p>连接包含倒数 1/L(s) 的表达式</p></div></div>
+            <svg viewBox="0 0 800 58" class="proof-arrow"><path id="proof-link-b" d="M56 0V48 M49 40L56 48L63 40"/></svg>
+            <div class="proof-step" id="proof-c"><span class="proof-number">03</span><div><h3>解析延拓</h3><p>排除所讨论区域内的零点</p></div></div>
+          </div>
+          <div class="plot-foot"><span id="plot-note">仅示上半平面的有限窗口</span><span>σ = Re(s) &nbsp; · &nbsp; t = Im(s)</span></div>
+        </div>
+      </div>
+      <footer class="film-footer"><span id="source-label">原文释读 · The Quasi-Riemann Hypothesis · 2026.09.30</span><span id="film-time">00:00</span></footer>
+      <div class="captions" id="captions"><span id="caption-text">7/8，离 1/2 还有多远？</span></div>
+      <div class="film-progress"><div id="film-progress-fill"></div></div>
+    </div>
+    <audio id="narration" src="assets/narration.mp3?v=ff90e785eb68" data-start="0" data-duration="95.082" data-track-index="1" data-volume="1" preload="metadata"></audio>
+  </div>
+  <script>
+/* A continuous mathematical diagram, driven only by a paused, seekable timeline. */
+(() => {
+  const { duration, chapters, cues } = window.RIEMANN_TIMING;
+  const tl = gsap.timeline({ paused: true });
+  const q = s => document.querySelector(s);
+  const at = index => chapters[index].start;
+  const fade = (target, from, to, start, length = .65) => tl.fromTo(target, { opacity: from }, { opacity: to, duration: length, ease: 'power1.inOut', immediateRender: false }, start);
+  document.querySelectorAll('.draw').forEach((path, i) => {
+    const length = path.getTotalLength();
+    tl.fromTo(path, { strokeDasharray: length, strokeDashoffset: length }, { strokeDashoffset: 0, duration: .9, ease: 'power2.out' }, .2 + i * .2);
+  });
+  chapters.forEach((chapter, i) => {
+    if (i === 0) tl.set('#phase-0', { opacity: 1, y: 0 }, 0);
+    else {
+      fade(`#phase-${i}`, 0, 1, chapter.start - .4, .4);
+      tl.fromTo(`#phase-${i}`, { y: 12 }, { y: 0, duration: .4, ease: 'power2.out', immediateRender: false }, chapter.start - .4);
+    }
+    if (i < chapters.length - 1) fade(`#phase-${i}`, 1, 0, chapter.end - .65, .25);
+  });
+  document.querySelectorAll('.zero').forEach((point, i) => fade(point, 0, 1, at(2) + 1.3 + i * .45, .45));
+  fade('#zero-callout', 0, 1, at(2) + 5.2);
+  fade('#zero-callout', 1, 0, at(3));
+  fade('#boundary', 0, 1, at(3) + .4);
+  tl.fromTo('#boundary', { x: 0 }, { x: -75, duration: 2.4, ease: 'power2.inOut', immediateRender: false }, at(3) + 1);
+  ['#right-region', '#right-hatch'].forEach(selector => {
+    fade(selector, 0, 1, at(3) + .4);
+    tl.fromTo(selector, { attr: { x: 760, width: 140 } }, { attr: { x: 685, width: 215 }, duration: 2.4, ease: 'power2.inOut', immediateRender: false }, at(3) + 1);
+  });
+  fade('#boundary-label', 0, 1, at(3) + 3.4);
+  fade('#region-label', 0, 1, at(3) + 3.4);
+  fade('#pole', 0, 1, at(3) + 6.2);
+  fade('#plot-base', 1, .13, at(4));
+  fade('#proof', 0, 1, at(4) + .6);
+  ['#proof-a', '#proof-b', '#proof-c'].forEach((s, i) => fade(s, 0, 1, at(4) + .6 + i * 2.4));
+  ['#proof-link-a', '#proof-link-b'].forEach((s, i) => {
+    const length = q(s).getTotalLength();
+    tl.fromTo(s, { strokeDasharray: length, strokeDashoffset: length }, { strokeDashoffset: 0, duration: .7, ease: 'power2.out', immediateRender: false }, at(4) + 2.3 + i * 2.4);
+  });
+  fade('#proof', 1, 0, at(5) - .5, .5);
+  fade('#plot-base', .13, 1, at(5));
+  ['#left-region', '#mirror-boundary', '#mirror-label'].forEach(s => fade(s, 0, 1, at(5) + 1, 1.1));
+  fade('#band-label', 1, 0, at(5));
+  fade('#interval-bracket', 0, 1, at(5) + 1.8);
+  fade('#interval-label', 0, 1, at(5) + 2.5);
+  const state = { time: 0 };
+  const stamp = seconds => `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+  const current = (entries, time) => entries.findLast(entry => entry.start <= time) || entries[0];
+  let previousCaption, previousChapter;
+  function update() {
+    const chapter = current(chapters, state.time);
+    const caption = current(cues, state.time).text;
+    if (previousChapter !== chapter) {
+      q('#chapter-label').textContent = `${String(chapters.indexOf(chapter) + 1).padStart(2, '0')} / ${chapter.title}`;
+      q('#plot-note').textContent = chapters.indexOf(chapter) >= 2 ? '六个数值例子 · 仅示有限窗口' : '仅示上半平面的有限窗口';
+      previousChapter = chapter;
+    }
+    if (caption !== previousCaption) { q('#caption-text').textContent = caption; previousCaption = caption; }
+    q('#film-time').textContent = stamp(state.time);
+    q('#film-progress-fill').style.transform = `scaleX(${state.time / duration})`;
+  }
+  tl.to(state, { time: duration, duration, ease: 'none', onUpdate: update }, 0);
+  window.__timelines = window.__timelines || {};
+  window.__timelines['riemann'] = tl;
+  window.riemannSeek = time => { tl.totalTime(Math.max(0, Math.min(duration, time)), false); update(); };
+  window.riemannSeek(0);
+})();
+
+</script>
+</body>
+</html>
