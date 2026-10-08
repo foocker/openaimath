@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="96 秒中文讲解：002 系列的完整 BSD 公式，低 Selmer 余秩前提与全部素数因子的含义。"><title>002 · BSD：从两个秩，到一个完整公式 — OpenAI Math</title><link rel="stylesheet" href="assets/fonts.css?v=7f75dfd6cc87"><link rel="stylesheet" href="player.css?v=7f75dfd6cc87"><script src="timing.js?v=7f75dfd6cc87"></script></head>
+<body><div class="page"><header class="page-header"><a class="back" href="../../?paper=Exact-Birch-Swinnerton-Dyer-Formula-from-Low-Selmer-Corank-October-3-2026">← 返回论文</a><span>OPENAI MATH / 002</span></header><main>
+  <div class="intro"><p class="eyebrow">002 · 论文讲解 · 中文旁白</p><h1>BSD：从两个秩，到一个完整公式</h1><p>The full BSD formula from low Selmer corank</p></div>
+  <section id="player" aria-label="论文视频播放器" tabindex="0">
+    <div class="canvas" id="canvas"><iframe id="composition" src="composition.html?v=7f75dfd6cc87" title="低 Selmer 余秩与完整 BSD 公式动画" scrolling="no" tabindex="-1" aria-hidden="true"></iframe><button id="cover-play" aria-label="播放讲解"><span class="play-triangle">▶</span><span>播放讲解 <small>01:35 · 中文旁白</small></span></button></div>
+    <div class="caption-line" id="live-caption">椭圆曲线的有理点，与 L 函数有怎样的联系？</div>
+    <div class="transport"><label class="sr-only" for="progress">播放进度（秒）</label><input id="progress" type="range" min="0" max="95.826" step="0.05" value="0" aria-valuetext="00:00 / 01:35"><div class="control-row"><button id="play" aria-label="播放" disabled>▶ <span>播放</span></button><button id="restart" aria-label="从头播放">↺</button><output id="clock" aria-live="off">00:00 / 01:35</output><div class="spacer"></div><label class="sr-only" for="speed">播放速度</label><select id="speed" aria-label="播放速度"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select><button id="mute" aria-pressed="false" aria-label="静音">声音</button><button id="cc" aria-pressed="true" aria-label="显示字幕">字幕</button><button id="fullscreen" aria-label="全屏播放">⛶</button></div></div>
+    <nav class="chapters" id="chapters" aria-label="视频章节"></nav><p id="player-status" role="status">正在加载画面…</p>
+  </section>
+  <div class="reader-notes">
+    <section><h2>对应的是 002 系列的哪篇论文</h2><p>本片选用 2026 年 10 月 3 日的 <i>Exact Birch–Swinnerton-Dyer Formula from Low Selmer Corank</i>。论文的定理 1.1 假设：对有理数域上的椭圆曲线 E，存在素数 q，使完整 q 幂 Selmer 群的 ℤ<sub>q</sub> 余秩属于 {0,1}。在此条件下，论文给出秩的相等、Sha 群的有限性，以及包含所有素数因子的完整 BSD 首项公式。</p><p>原文第 3 页特别强调：不能把这个条件直接换成 Mordell–Weil 秩为 0 或 1。周期、调整子及局部因子的规范也按该页定义。目录目前没有将本篇标记为附有 Lean 形式化。</p></section>
+    <details><summary>逐句文字稿与章节跳转</summary><div id="transcript"></div></details>
+    <section class="sources"><h2>原文、图示和术语</h2><ul>
+      <li><a href="https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/Exact-Birch-Swinnerton-Dyer-Formula-from-Low-Selmer-Corank-October-3-2026/exact-bsd-low-selmer-corank.pdf" target="_blank" rel="noopener noreferrer">原论文 PDF ↗</a>：共 94 页；本片依据摘要、pp.2–5，尤其定理 1.1、式 (1.2) 和 §1.3 的素数差异比较。</li>
+      <li><a href="../../?subject=number-theory#f002">002 系列的三篇论文 ↗</a>：完整首项公式、Selmer 逆向结论及二部分公式。</li>
+      <li>图示曲线为 y² = x³ − x + 1，(0,1)、(3,5) 确实满足方程。它只解释“有理点”，未计算该曲线的秩或 L 函数；右侧函数图是局部形状示意。</li>
+      <li>专业术语依据指定词典：Selmer group → 塞尔默群；corank → 余秩；analytic rank → 解析秩；regulator → 调整子；Tamagawa number → 玉河数。Sha 的中文采用词典中完整的 Shafarevich–Tate group 条目：“沙法列维奇–泰特群”。</li>
+    </ul><p class="fine">本站制作的非官方论文解读，不构成独立证明核验。中文旁白为合成语音。来源 openai/math（Apache-2.0），版本 adc7f12。<a href="https://github.com/foocker/openaimath/tree/main/videos/bsd-low-corank" target="_blank" rel="noopener noreferrer">查看本片源码 ↗</a></p></section>
+  </div>
+</main></div><script src="player.js?v=7f75dfd6cc87"></script></body></html>
