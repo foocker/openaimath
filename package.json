@@ -1,0 +1,26 @@
+{
+  "name": "openai-math-reader",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "npm run check:data && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "deploy": "npm run build && node scripts/deploy.mjs",
+    "sync": "python scripts/sync.py",
+    "check:data": "python scripts/sync.py --check",
+    "test": "node scripts/smoke.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/source-serif-4": "^5.2.9",
+    "dompurify": "^3.3.0",
+    "katex": "^0.16.22",
+    "pdfjs-dist": "^5.4.624"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.2",
+    "vite": "^6.4.1"
+  }
+}
