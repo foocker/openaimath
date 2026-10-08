@@ -5,8 +5,12 @@ import { homedir } from 'node:os';
 import { chromium } from 'playwright';
 import { preview } from 'vite';
 
-const timing = JSON.parse(readFileSync('videos/riemann-zero-free/timing.json', 'utf8'));
-const artifact = 'artifacts/riemann-video';
+const slug = process.argv[2] || 'riemann-zero-free';
+assert(['riemann-zero-free', 'bsd-low-corank'].includes(slug));
+const isBsd = slug === 'bsd-low-corank';
+const timing = JSON.parse(readFileSync(`videos/${slug}/timing.json`, 'utf8'));
+const content = JSON.parse(readFileSync(`videos/${slug}/content.json`, 'utf8'));
+const artifact = isBsd ? 'artifacts/bsd-video' : 'artifacts/riemann-video';
 mkdirSync(artifact, { recursive: true });
 let executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
 if (!executablePath && !existsSync(chromium.executablePath())) {
@@ -19,7 +23,7 @@ if (!executablePath && !existsSync(chromium.executablePath())) {
 const liveBase = process.env.EXPLAINER_TEST_BASE;
 const server = liveBase ? null : await preview({ base: '/openaimath/', preview: { host: '127.0.0.1', port: 4182, strictPort: true } });
 const base = liveBase || 'http://127.0.0.1:4182/openaimath/';
-const url = `${base}explainers/riemann-zero-free/`;
+const url = `${base}explainers/${slug}/`;
 let browser;
 const errors = [], badRequests = [];
 try {
@@ -51,9 +55,10 @@ try {
   console.log('PASS play, pause, playback speed, mute');
 
   async function seek(time) {
-    await page.locator('#progress').fill(String(time));
+    await page.locator('#progress').fill(String(Math.round(time * 20) / 20));
     await film.evaluate(() => document.fonts.ready);
   }
+  if (!isBsd) {
   await seek(48);
   assert.equal(await film.locator('#right-region').getAttribute('x'), '685');
   assert.equal(await film.locator('#right-region').getAttribute('width'), '215');
@@ -65,15 +70,31 @@ try {
   assert.equal(await film.locator('#right-region').evaluate(el => getComputedStyle(el).opacity), '0');
   assert.equal(await film.locator('#mirror-label').evaluate(el => getComputedStyle(el).opacity), '0');
   assert.deepEqual(await film.locator('.zero').evaluateAll(elements => elements.map(el => el.getAttribute('cx'))), Array(6).fill('460'));
+  } else {
+    await seek(49);
+    assert.equal(await film.locator('.katex-error').count(), 0);
+    assert.equal(await film.locator('.formula-legend .legend-item').count(), 5);
+    assert((await film.locator('#bsd-equation').innerText()).includes('Sha'));
+    assert((await film.locator('#bsd-equation').innerText()).includes('tors'));
+    assert((await film.locator('#phase-2 .selmer-definition').innerText()).includes('∞'));
+    await seek(73);
+    assert.equal(await film.locator('#ratio-result').evaluate(el => getComputedStyle(el).opacity), '1');
+    await seek(65);
+    assert.equal(await film.locator('#ratio-result').evaluate(el => getComputedStyle(el).opacity), '0', 'Later conclusion must stay hidden before its cue, including after reverse seek');
+    await seek(32);
+    assert.equal(await film.locator('#phase-2').evaluate(el => getComputedStyle(el).opacity), '1');
+    assert.equal(await film.locator('#phase-4').evaluate(el => getComputedStyle(el).opacity), '0');
+  }
   const before = await page.locator('#canvas').screenshot();
   await seek(86); await seek(32);
   assert.deepEqual(await page.locator('#canvas').screenshot(), before, 'Same frame after reverse seek');
-  console.log('PASS exact 7/8 geometry, excluded pole, symmetric region, deterministic backwards seek');
+  console.log(isBsd ? 'PASS full q-power condition, five BSD factors, rational-ratio conclusion, deterministic backwards seek' : 'PASS exact 7/8 geometry, excluded pole, symmetric region, deterministic backwards seek');
 
-  for (const [index, time] of [4, 17, 32, 48, 65, 86].entries()) {
+  const sampleTimes = isBsd ? timing.chapters.map(chapter => (chapter.start + chapter.end) / 2) : [4, 17, 32, 48, 65, 86];
+  for (const [index, time] of sampleTimes.entries()) {
     await seek(time);
     await page.locator('#canvas').screenshot({ path: `${artifact}/chapter-${index + 1}.png` });
-    const overflow = await film.evaluate(() => [...document.querySelectorAll('.phase')].filter(el => Number(getComputedStyle(el).opacity) > .9).flatMap(el => [...el.querySelectorAll('h1,h2,p,.formula,.hero-fractions')]).filter(el => el.getBoundingClientRect().bottom > 926).map(el => el.textContent));
+    const overflow = await film.evaluate(() => [...document.querySelectorAll('.phase')].filter(el => Number(getComputedStyle(el).opacity) > .9).flatMap(el => [...el.querySelectorAll('h1,h2,p,.formula,.hero-fractions,.math')]).filter(el => el.getBoundingClientRect().bottom > 926 || el.getBoundingClientRect().right > 1841).map(el => el.textContent));
     assert.deepEqual(overflow, [], `Chapter ${index + 1}: safe content area`);
   }
   await page.locator('#chapters button').nth(3).click();
@@ -89,7 +110,7 @@ try {
   assert(await page.locator('#live-caption').isVisible());
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
   await page.screenshot({ path: `${artifact}/player-mobile.png`, fullPage: true });
-  await page.goto(`${base}?paper=The-Quasi-Riemann-Hypothesis-September-30-2026#explainer`);
+  await page.goto(`${base}?paper=${content.paperId}#explainer`);
   await page.locator('.explainer-frame').scrollIntoViewIfNeeded();
   const embedded = page.frameLocator('.explainer-frame');
   await embedded.locator('#player[data-ready="true"]').waitFor({ timeout: 45000 });
@@ -99,6 +120,12 @@ try {
   const bodyHeight = await embedded.locator('body').evaluate(el => el.getBoundingClientRect().height);
   assert(Math.abs(iframeHeight - bodyHeight) < 4, `Frame height ${iframeHeight} must fit player ${bodyHeight}`);
   assert.equal(await page.locator('.reader-actions a[href="#explainer"]').count(), 1);
+  assert((await page.locator('.explainer-intro').innerText()).includes(`${Math.round(timing.duration)} 秒`));
+  assert((await page.locator('.reader-aside a[href="#explainer"]').innerText()).includes(`${Math.round(timing.duration)} 秒`));
+  if (isBsd) {
+    assert((await page.locator('.explainer-note').innerText()).includes('余秩为 0 或 1'));
+    assert.equal(await page.locator('.reader-head .lean-badge').count(), 0);
+  }
   await page.screenshot({ path: `${artifact}/paper-mobile.png`, fullPage: true });
   console.log('PASS GitHub Pages subdirectory URLs, mobile captions, embedded height and paper association');
   assert.deepEqual(errors, []);

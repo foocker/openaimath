@@ -1,6 +1,6 @@
 (() => {
   const $ = selector => document.querySelector(selector);
-  const timing = window.RIEMANN_TIMING;
+  const timing = window.EXPLAINER_TIMING;
   const embedded = new URLSearchParams(location.search).get('embed') === '1';
   document.documentElement.classList.toggle('embed', embedded);
   const frame = $('#composition'), player = $('#player'), progress = $('#progress');
@@ -21,7 +21,7 @@
   new ResizeObserver(reportHeight).observe(document.body);
   function draw(time) {
     if (!ready) return;
-    film.riemannSeek(time);
+    (film.explainerSeek || film.riemannSeek)(time);
     progress.value = time;
     const display = `${stamp(time)} / ${stamp(duration)}`;
     $('#clock').textContent = display;
@@ -75,7 +75,7 @@
   async function onFrameReady() {
     if (ready) return;
     film = frame.contentWindow;
-    if (!film.riemannSeek) { $('#player-status').textContent = '画面未能加载，请刷新页面重试。'; return; }
+    if (!film.explainerSeek && !film.riemannSeek) { $('#player-status').textContent = '画面未能加载，请刷新页面重试。'; return; }
     audio = film.document.querySelector('#narration');
     audio.addEventListener('play', () => { state(true); cancelAnimationFrame(frameRequest); tick(); });
     audio.addEventListener('pause', () => { state(false); cancelAnimationFrame(frameRequest); draw(Math.min(duration, audio.currentTime)); });
@@ -86,7 +86,7 @@
     $('#player-status').textContent = ''; draw(.9); progress.value = 0; $('#clock').textContent = `00:00 / ${stamp(duration)}`; resize();
   }
   frame.addEventListener('load', onFrameReady);
-  if (frame.contentDocument?.readyState === 'complete' && frame.contentWindow.riemannSeek) onFrameReady();
+  if (frame.contentDocument?.readyState === 'complete' && (frame.contentWindow.explainerSeek || frame.contentWindow.riemannSeek)) onFrameReady();
   $('#cover-play').addEventListener('click', play);
   $('#play').addEventListener('click', () => playing ? pause() : play());
   $('#restart').addEventListener('click', () => { seek(0); play(); });
@@ -106,5 +106,6 @@
     if (event.key === 'ArrowLeft') { event.preventDefault(); seek((audio?.currentTime || 0) - 5); }
   });
   document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+  if (location.hash === '#transcript') $('#transcript').closest('details').open = true;
   resize();
 })();

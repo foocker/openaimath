@@ -14,3 +14,12 @@ videos/riemann-zero-free/snapshots/
 videos/riemann-zero-free/.media/audio/
 videos/riemann-zero-free/.thumbnails/
 videos/riemann-zero-free/.waveform-cache/
+videos/bsd-low-corank/assets/*
+!videos/bsd-low-corank/assets/narration.mp3
+videos/bsd-low-corank/index.html
+videos/bsd-low-corank/timing.js
+videos/bsd-low-corank/.hyperframes/
+videos/bsd-low-corank/.thumbnails/
+videos/bsd-low-corank/.waveform-cache/
+videos/bsd-low-corank/snapshots/
+videos/bsd-low-corank/.media/audio/

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=1920, height=1080"><title>002 · BSD：从两个秩，到一个完整公式</title><link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/katex/katex.min.css"><link rel="stylesheet" href="composition.css"><script src="assets/gsap.min.js"></script><script src="timing.js"></script></head>
+<body>
+<div id="film" data-composition-id="bsd" data-width="1920" data-height="1080" data-duration="{{DURATION}}">
+  <div id="comparison-board" class="clip scene" data-start="0" data-duration="{{DURATION}}" data-track-index="0">
+    <header class="film-header"><span>∮ &nbsp; OPENAI MATH <span class="separator">/</span> 002</span><span id="chapter-label">01 / 一条曲线，一个函数</span></header>
+    <div class="film-body">
+      <section class="phase" id="phase-0">
+        <div class="editorial"><p class="eyebrow">THE FULL BSD FORMULA</p><h1>一条曲线。<br>一个函数。</h1><div class="hero-word">BSD</div><p class="body-copy">两种数学语言，<br>如何给出同一个答案？</p><p class="annotation">读懂“低 Selmer 余秩”条件下的完整首项公式。</p></div>
+        <div class="board opening-board">
+          <div class="dual-labels"><span class="rust">算术 / 有理点</span><span class="blue">解析 / L 函数</span></div>
+          <div class="dual-diagram">
+            <div><p class="plot-title">y² = x³ − x + 1</p><svg class="curve-plot" viewBox="0 0 500 430" aria-label="椭圆曲线 y²=x³−x+1 上的有理点示意"><g class="grid">{{CURVE_GRID}}</g><path class="axis" d="M35 215H480 M135 395V30"/><text x="462" y="247" class="axis-label">x</text><text x="100" y="34" class="axis-label">y</text><path id="elliptic-curve" class="curve draw" d="{{CURVE_PATH}}"/><g id="rational-points"><circle cx="135" cy="185" r="8"/><circle cx="345" cy="65" r="8"/></g><text x="151" y="183" class="point-label">(0, 1)</text><text x="292" y="41" class="point-label">(3, 5)</text></svg><p class="plot-note">两个满足方程的有理点</p></div>
+            <div><p class="plot-title blue">L(E, s)</p><svg class="function-plot" viewBox="0 0 460 430" aria-label="L 函数在 s=1 附近消失阶为一时的局部形状示意"><g class="grid"><path d="M45 105H430 M45 165H430 M45 285H430 M45 345H430"/></g><path class="axis" d="M35 225H440 M225 380V30"/><path class="function-line draw" d="M80 340L380 100"/><circle cx="225" cy="224" r="7" fill="#315e91"/><text x="218" y="414" class="axis-label">1</text><text x="424" y="257" class="axis-label">s</text></svg><p class="plot-note">s = 1 附近的局部形状示意</p></div>
+          </div><div class="bridge"><span>有理点群 E(ℚ)</span><span class="bridge-line"></span><span>首项系数</span></div><p class="board-note">图形用于解释概念，未计算示例曲线的 L 函数或秩。</p>
+        </div>
+      </section>
+      <section class="phase" id="phase-1">
+        <div class="editorial"><p class="eyebrow">01 / 先理解两种秩</p><h2>“几阶消失”，<br>只是第一层。</h2><p class="body-copy">有理点群的自由部分，<br>与 L 函数的消失阶。</p><p class="annotation">秩的相等，并不能确定第一个非零泰勒系数的数值。</p></div>
+        <div class="board ranks-board">
+          <div class="rank-row" id="arithmetic-rank"><span class="rank-letter rust">r</span><div><h3>有理点群的秩</h3><math-tex class="group-formula">E(\mathbb Q)\cong\mathbb Z^r\oplus T</math-tex><p>T 是有限挠子群，r 是自由部分的独立生成元个数。</p></div></div>
+          <div class="rank-row" id="analytic-rank"><span class="rank-letter blue">a</span><div><h3>解析秩</h3><math-tex class="order-formula">L(E,s)=A(s-1)^a+\cdots</math-tex><p>a 是 s = 1 处的消失阶；A 是首个非零系数。</p></div></div>
+          <div class="rank-link"><span>BSD 的秩预测</span><math-tex>a=r</math-tex><span>下一步：确定 A</span></div>
+        </div>
+      </section>
+      <section class="phase" id="phase-2">
+        <div class="editorial"><p class="eyebrow">02 / 原文定理 1.1</p><h2>关键前提：<br>Selmer 余秩<br>为 0 或 1。</h2><p class="body-copy">对有理数域上的椭圆曲线 E，<br>存在一个素数 q。</p><p class="annotation">原文明确：不能直接替换成 Mordell–Weil 秩为 0 或 1 的条件。</p></div>
+        <div class="board condition-board">
+          <p class="board-eyebrow">完整 q 幂塞尔默群</p><math-tex class="selmer-definition">s_q(E)=\operatorname{corank}_{\mathbb Z_q}\operatorname{Sel}_{q^\infty}(E/\mathbb Q)</math-tex>
+          <div class="condition-focus"><math-tex>s_q(E)\in\{0,1\}</math-tex></div>
+          <div class="condition-details"><div><strong>某个素数 q</strong><p>假设中只需存在一个这样的素数。</p></div><div><strong>完整 q 幂群</strong><p>不是只查看一次 q-Selmer 群。</p></div><div><strong>余秩条件</strong><p>不能省略，也不能直接改成点群的秩。</p></div></div>
+        </div>
+      </section>
+      <section class="phase" id="phase-3">
+        <div class="editorial"><p class="eyebrow">03 / 从阶数，到系数</p><h2>相等的是<br>整个首项系数。</h2><div class="hero-symbol blue">A</div><p class="body-copy">解析侧的一个数，<br>对应算术侧的一组精确因子。</p><p class="annotation">在低 Selmer 余秩条件下，r = a。周期与调整子的规范沿用原文。</p></div>
+        <div class="board formula-board">
+          <p class="board-eyebrow">完整 BSD 首项公式 · 原文式 (1.2)</p><div id="bsd-equation"><math-tex class="full-formula">\frac{L^{(r)}(E,1)}{r!}=\frac{\Omega_E\,\operatorname{Reg}_E\,\#\operatorname{Sha}(E/\mathbb Q)\,\prod_{\ell}c_{\ell}(E)}{\#E(\mathbb Q)_{\mathrm{tors}}^{\,2}}</math-tex></div>
+          <div class="formula-legend">
+            <div class="legend-item" id="factor-period"><math-tex>\Omega_E</math-tex><span>实周期</span></div>
+            <div class="legend-item" id="factor-regulator"><math-tex>\operatorname{Reg}_E</math-tex><span>调整子</span></div>
+            <div class="legend-item" id="factor-sha"><math-tex>\#\operatorname{Sha}(E/\mathbb Q)</math-tex><span>沙法列维奇–泰特群的阶</span></div>
+            <div class="legend-item" id="factor-tamagawa"><math-tex>\prod_{\ell}c_{\ell}(E)</math-tex><span>所有有限素数处的玉河数之积</span></div>
+            <div class="legend-item wide" id="factor-torsion"><math-tex>\#E(\mathbb Q)_{\mathrm{tors}}^{\,2}</math-tex><span>分母：有理挠子群的阶的平方</span></div>
+          </div><p class="board-note">r = 0 时左边是 L(E,1)；r = 1 时是 L′(E,1)。</p>
+        </div>
+      </section>
+      <section class="phase" id="phase-4">
+        <div class="editorial"><p class="eyebrow">04 / “完整”的含义</p><h2>每个素数，<br>都要对上。</h2><p class="body-copy">2 的配套结果，<br>与所有奇素数的精确比较。</p><p class="annotation">这是一张证明路线图。素数间的比较及全部技术条件，见原文。</p></div>
+        <div class="board primes-board">
+          <div class="prime-row"><div class="prime two">2<span>配套结果</span></div><div class="prime odd">3</div><div class="prime odd">5</div><div class="prime odd">7</div><div class="prime odd">11</div><div class="prime odd">⋯</div></div><p class="all-primes">所有奇素数 p · 本文的精确比较</p>
+          <div class="ratio-definition"><span>把公式两边相除</span><math-tex>R\in\mathbb Q_{>0}</math-tex></div>
+          <div class="valuations"><math-tex>v_p(R)=0</math-tex><span>对所有素数 p</span></div>
+          <div class="ratio-result" id="ratio-result"><span>每个素数的指数差都是零</span><math-tex>\Longrightarrow\quad R=1</math-tex></div>
+        </div>
+      </section>
+      <section class="phase" id="phase-5">
+        <div class="editorial"><p class="eyebrow">05 / 结论与适用范围</p><h2>完整公式，<br>带着明确前提。</h2><p class="body-copy">首先确认低 Selmer 余秩条件，<br>再使用论文的三项结论。</p><p class="annotation">本篇在官方目录中未带 Lean 标记。这里是对论文内容的解读。</p></div>
+        <div class="board conclusion-board">
+          <div class="condition-reminder"><span>存在素数 q，使</span><math-tex>s_q(E)\in\{0,1\}</math-tex></div>
+          <div class="conclusion-row"><span>01</span><div><h3>三个数相等</h3><math-tex>r(E)=a(E)=s_q(E)</math-tex></div></div>
+          <div class="conclusion-row"><span>02</span><div><h3>Sha 群有限</h3><math-tex>\#\operatorname{Sha}(E/\mathbb Q)<\infty</math-tex></div></div>
+          <div class="conclusion-row"><span>03</span><div><h3>完整首项公式</h3><p>包含所有素数因子；周期与调整子按定理 1.1 规范。</p></div></div>
+        </div>
+      </section>
+    </div>
+    <footer class="film-footer"><span>原文释读 · Exact BSD Formula from Low Selmer Corank · 2026.10.03</span><span id="film-time">00:00</span></footer>
+    <div class="captions" id="captions"><span id="caption-text"></span></div><div class="film-progress"><div id="film-progress-fill"></div></div>
+  </div>
+  <audio id="narration" src="assets/narration.mp3" data-start="0" data-duration="{{DURATION}}" data-track-index="1" data-volume="1" preload="metadata"></audio>
+</div><script src="composition.js"></script></body></html>

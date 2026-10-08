@@ -1,0 +1,27 @@
+{
+  "source": "tools/math-translator/dictionaries/merged.json",
+  "sha256": "3180d358c6a72c6334c6799df69e21a24c82fd24f6276ff7c9768e58f8bb7c6c",
+  "dictionaryEntries": {
+    "Birch and Swinnerton-Dyer conjecture": "伯奇与斯温纳顿·戴尔猜想,BSD猜想",
+    "elliptic curve": "椭圆曲线",
+    "rational point": "有理点",
+    "Selmer group": "塞尔默群",
+    "corank": "余秩",
+    "rank": "秩 ，阶，等级",
+    "analytic rank": "解析秩",
+    "Mordell-Weil group": "莫德尔-韦伊群",
+    "Shafarevich-Tate group": "沙法列维奇-泰特群",
+    "Tate-Shafarevich group": "泰特-沙法列维奇 奇群",
+    "regulator": "调整子 ，调节器",
+    "torsion subgroup": "挠子群",
+    "leading term": "首项",
+    "period": "周期，循环节",
+    "Tamagawa number": "玉河数"
+  },
+  "selectionNotes": {
+    "rank": "Use the algebraic sense, first entry.",
+    "regulator": "Use the arithmetic sense, first entry.",
+    "period": "Use the first entry.",
+    "Sha": "Use the complete Shafarevich-Tate group entry. The Tate-Shafarevich group entry contains a duplicated character."
+  }
+}

@@ -26,6 +26,7 @@ npm run dev
 - 支持仅看 Lean、日期排序、标题排序、摘要展开和原始 BibTeX 复制。
 - 论文阅读页包括摘要、成果背景、相关论文，以及支持翻页、缩放和文字选择的 PDF 阅读器。
 - 系列 003 的 9 月 30 日论文附有 [95 秒中文视频讲解](https://foocker.github.io/openaimath/explainers/riemann-zero-free/)，支持旁白、同步字幕、拖动进度、倍速和章节跳转。动画由前端代码直接播放。
+- 系列 002 的 10 月 3 日论文附有 [约 96 秒 BSD 公式讲解](https://foocker.github.io/openaimath/explainers/bsd-low-corank/)，解释低 Selmer 余秩条件、首项公式与所有素数因子的含义。
 - 深浅主题、摘要字号会保存在当前浏览器；搜索和筛选条件保存在 URL，可分享或刷新恢复。
 - 桌面、平板和手机均有对应排版。字体、KaTeX、PDF.js 均随站点构建，不依赖公共 CDN。
 
@@ -107,6 +108,8 @@ npm run test:explainers
 
 视频检查覆盖实际音频时长、播放和暂停、倍速、静音、字幕、章节、正反向定位、7/8 的图形坐标、手机字幕、嵌入尺寸和 GitHub Pages 子目录路径。数学解读、旁白稿和制作说明位于 [videos/riemann-zero-free](videos/riemann-zero-free/README.md)。视频关联独立于上游目录，同步论文不会覆盖本地解读。构建只使用已冻结音频和本地依赖，不调用语音生成服务。
 
+`test:explainers` 同时检查 003 与 002 两部作品。002 的内容依据、词典选词与制作说明见 [videos/bsd-low-corank](videos/bsd-low-corank/README.md)。两部作品共用 `videos/shared/` 播放器；新增内容的描述、时长和论文绑定均独立保存。
+
 ## 文件结构
 
 ```text
@@ -124,6 +127,8 @@ scripts/build-explainers.mjs  生成独立动画、播放器和本地字体资�
 scripts/test-explainers.mjs   前端视频浏览器检查
 src/explainers.js             论文与视频关联、嵌入及尺寸同步
 videos/riemann-zero-free/     95 秒论文讲解源项目、旁白和时间轴
+videos/bsd-low-corank/        约 96 秒 BSD 公式讲解源项目
+videos/shared/               两部作品共用的网页播放控制与样式
 public/data/catalog.json   完整的可追溯索引快照
 public/data/UPSTREAM-LICENSE.txt
 dist/                      生产构建产物

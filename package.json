@@ -7,7 +7,7 @@
     "dev": "npm run build:explainers && vite --host 127.0.0.1",
     "build": "npm run check:data && npm run build:explainers && vite build",
     "build:explainers": "node scripts/build-explainers.mjs",
-    "test:explainers": "node scripts/test-explainers.mjs",
+    "test:explainers": "node scripts/test-explainers.mjs && node scripts/test-explainers.mjs bsd-low-corank",
     "preview": "vite preview --host 127.0.0.1",
     "deploy": "npm run build && node scripts/deploy.mjs",
     "sync": "python scripts/sync.py",

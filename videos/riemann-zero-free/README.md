@@ -20,7 +20,7 @@
 
 `composition.html.txt`、`composition.css`、`composition.js` 组成连续的复平面场景。只有一个暂停的 GSAP 时间轴，动画由绝对时间确定；没有随机数、墙上时钟或运行时外部数据请求。真实音频的 currentTime 驱动网页播放器的画面，旁白、字幕与图形共享同一时间源。
 
-`player.html.txt`、`player.css`、`player.js` 提供播放控制、可访问的进度输入、章节和文字稿。手机外置字幕使用阅读字号。父页面只接受同源且来自指定 iframe 的尺寸消息，不固定裁切播放器。
+`player.html.txt` 与 `../shared/player.css`、`../shared/player.js` 提供播放控制、可访问的进度输入、章节和文字稿。手机外置字幕使用阅读字号。父页面只接受同源且来自指定 iframe 的尺寸消息，不固定裁切播放器。播放器与 002 系列的视频共用，内容和时间轴分别保存。
 
 在网站根目录运行：
 

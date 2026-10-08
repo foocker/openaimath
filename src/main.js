@@ -7,7 +7,7 @@ import 'katex/dist/katex.min.css';
 import renderMathInElement from 'katex/contrib/auto-render';
 import DOMPurify from 'dompurify';
 import './style.css';
-import { hasExplainer, explainerSection } from './explainers';
+import { hasExplainer, explainerSection, explainerDuration } from './explainers';
 
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -196,7 +196,7 @@ function detail(p) {
     <aside class="reader-aside"><div class="reader-aside-inner"><h2>本页目录</h2><nav aria-label="论文阅读目录"><a href="#abstract">摘要</a><a href="#family-context">成果系列</a><a href="#full-paper">论文全文</a></nav><div class="aside-divider"></div><h2>原始材料</h2><a href="${source(p.path)}" ${external}>论文 PDF ↗</a><a href="${source(`preprints/${p.id}`, 'tree')}" ${external}>LaTeX 与构建说明 ↗</a>${p.lean ? `<a href="${source(f.leanPath || 'lean/formalization.yaml')}" ${external}>Lean 形式化说明 ↗</a>` : ''}<div class="aside-note">本页保留官方英文原文。${p.lean ? '主结果的形式化标记来自官方目录，具体范围见 Lean 说明。' : '官方目录未将本篇标记为主结果已形式化。'}</div><div class="reader-type-controls"><span>摘要字号</span><button id="font-down" class="icon-button" aria-label="减小摘要字号">A−</button><button id="font-up" class="icon-button" aria-label="增大摘要字号">A＋</button></div></div></aside></div>`;
   if (hasExplainer(p.id)) {
     $('.reader-actions').insertAdjacentHTML('afterbegin', '<a class="button primary" href="#explainer">▷ 观看讲解</a>');
-    $('.reader-aside nav a').insertAdjacentHTML('afterend', '<a href="#explainer">视频讲解 · 95 秒</a>');
+    $('.reader-aside nav a').insertAdjacentHTML('afterend', `<a href="#explainer">视频讲解 · ${explainerDuration(p.id)} 秒</a>`);
   }
   let fontSize = 18;
   try { fontSize = Math.max(16, Math.min(24, Number(localStorage.getItem('math-font-size')) || 18)); } catch { /* Optional preference. */ }
